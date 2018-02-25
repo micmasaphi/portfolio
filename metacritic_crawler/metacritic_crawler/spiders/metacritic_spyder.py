@@ -29,8 +29,8 @@ class CriticSpider(scrapy.Spider):
             album_description = album.css('div.review_body::text').extract_first()
             album_description = album_description.strip(' \t\n\r')
             yield {
-                'album id': album.css('div.review_product a::attr(href)').extract_first(),
                 'publication name': album.css('li.publication_title::text').extract_first(),
+                'album link': album.css('div.review_product a::attr(href)').extract_first(),
                 'album name': album.css('div.review_product a::text').extract_first(),
                 'album rating': album.css('li.brief_critscore span.metascore_w::text').extract_first(),
                 'album description': album_description,
@@ -68,7 +68,7 @@ class AlbumSpider(scrapy.Spider):
                     genres.remove('...')
 
             mc_rating = album.css('span.metascore_w::text').extract_first()
-            if mc_rating is 'tbd':
+            if mc_rating == 'tbd':
                 mc_rating = None
 
             usr_rating = album.css('li.stat.product_avguserscore span.data::text').extract_first()
