@@ -1,0 +1,64 @@
+body {
+	font-family: 'helvetica neue', sans-serif;
+	font-weight: 300;
+}
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
+
+section#artist {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, 0%);
+}
+
+section#suggested_artists {
+	position: fixed;
+	top: 50%;
+	width:100%;
+	text-align:center;
+	transform: translate(0%, -50%);
+	/*left: 50%;*/
+}
+
+ul.suggested {
+	list-style: none;
+	padding: 0;
+}
+
+input#artist_name {
+	font-family: 'helvetica neue', sans-serif;
+	font-size: 30px;
+	font-weight: 700;
+	border: none;
+	border-bottom: 1px solid black;
+	text-align: center;	
+}
+
+.ui-menu {
+	padding:10px 0px 0px 0px !important;
+}
+
+.ui-menu * {
+	font-family: 'helvetica neue', sans-serif;
+	font-weight: 300 !important;
+}
+
+.ui-menu:hover, .ui-menu:focus,
+.ui-menu-item-wrapper:hover, .ui-menu-item-wrapper:focus,
+.ui-widget-content:hover, .ui-widget-content:focus,
+.ui-widget:hover, .ui-widget:focus {
+	font-weight: 700 !important;
+}
+
+.ui-menu-item-wrapper,
+.ui-widget-content,
+.ui-widget{
+	border: none !important;
+}
+
+
