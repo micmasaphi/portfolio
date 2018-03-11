@@ -6,6 +6,7 @@
 	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
 </head>
 <body>
+	<div>
 	<section id="artist">
 		<form action="" id="artist_form">
 				<input 
@@ -18,9 +19,15 @@
 				<button name="submit" id="submit" style="display:none"></button>
 		</form>
 	</section>
-	<section id="suggested_artists">
-		<ul class="suggested"></ul>
-	</section>
+	</div>
+	<div id="suggestions">
+		<section id="suggested_artists">
+			<ul class="suggested"></ul>
+		</section>
+		<section id="suggested_albums">
+			<ul class="suggested"></ul>
+		</section>
+	</div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="index.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>

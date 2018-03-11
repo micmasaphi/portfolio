@@ -7,15 +7,7 @@ if($_POST) {
 	$conn = pg_connect("host=localhost port=5432 dbname=metacritic user=postgres")
 		or die('Could not connect: ' . pg_last_error());
 
-	$query = "WITH b as (
-	WITH c as (
-		SELECT artist, unnest(corr_vector) as items
-		FROM correlations WHERE LOWER(artist)=LOWER('".pg_escape_string($artist)."')
-	)
-		SELECT row_number() over() as rownum, artist, items FROM c WHERE items <= 0.99999999999
-		ORDER BY items DESC LIMIT 10
-	)
-	SELECT artist FROM correlations WHERE row in (SELECT rownum FROM b);";
+	$query = "SELECT * FROM albums WHERE artist='".pg_escape_string($artist)."' ORDER BY mc_rating DESC";
 
 	$result = pg_query($query) or die('Query failed: ' . pg_last_error());
 	$resultArray = pg_fetch_all($result);

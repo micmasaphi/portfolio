@@ -1,3 +1,10 @@
+/*
+	TODO: max-width viewports etc.
+*/
+
+html {
+	font-size: 50px;
+}
 body {
 	font-family: 'helvetica neue', sans-serif;
 	font-weight: 300;
@@ -10,29 +17,75 @@ button:focus {
 }
 
 section#artist {
+	margin-top: 20px;
 	position: fixed;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, 0%);
+	z-index: 1;
 }
 
-section#suggested_artists {
+div#suggestions {
+	position: fixed;
+	top: 50%;
+	width: 564px;
+	text-align:left;
+	overflow-y: scroll;
+	height: 100%;
+}
+/*section#suggested_artists {
 	position: fixed;
 	top: 50%;
 	width:100%;
-	text-align:center;
-	transform: translate(0%, -50%);
-	/*left: 50%;*/
+	text-align:left;
+	overflow: scroll;
 }
+
+section#suggested_albums{
+	position: fixed;
+	top: 50%;
+	width:100%;
+	text-align:left;
+	overflow: scroll;
+}*/
 
 ul.suggested {
 	list-style: none;
 	padding: 0;
+	font-weight: 100;
+}
+
+ul.suggested * {
+	font-size: 0.5rem;
+	font-family: 'helvetica neue', sans-serif;
+	font-weight: 300;
+}
+
+ul.suggested li a:hover {
+	font-weight: 700;
+	cursor: pointer;
+}
+
+li#you_might_like {
+	font-weight: 700;
+}
+
+li.artist_title {
+	font-weight: 700;
+	font-size: 0.6rem;
+	cursor: pointer;
+}
+
+li.back_to_artists {
+    color: darkgray;
+    font-size: 0.3em;
+    padding-top: 10px;
+    cursor: pointer;
 }
 
 input#artist_name {
 	font-family: 'helvetica neue', sans-serif;
-	font-size: 30px;
+	font-size: 1rem;
 	font-weight: 700;
 	border: none;
 	border-bottom: 1px solid black;
@@ -40,10 +93,14 @@ input#artist_name {
 }
 
 .ui-menu {
-	padding:10px 0px 0px 0px !important;
+	padding:10px 0px 10px 0px !important;
+	background-color: aqua;
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
 }
 
 .ui-menu * {
+	font-size: 0.5rem;
 	font-family: 'helvetica neue', sans-serif;
 	font-weight: 300 !important;
 }
@@ -51,14 +108,20 @@ input#artist_name {
 .ui-menu:hover, .ui-menu:focus,
 .ui-menu-item-wrapper:hover, .ui-menu-item-wrapper:focus,
 .ui-widget-content:hover, .ui-widget-content:focus,
-.ui-widget:hover, .ui-widget:focus {
+.ui-widget:hover, .ui-widget:focus, .ui-state-active {
 	font-weight: 700 !important;
+	background-color: aqua !important;
 }
 
 .ui-menu-item-wrapper,
 .ui-widget-content,
-.ui-widget{
+.ui-widget, .ui-state-active {
 	border: none !important;
+	background-color: aqua !important;
+}
+.ui-state-active, .ui-widget-content .ui-state-active {
+	background-color: aqua !important;
+	background: aqua !important;
 }
 
 
