@@ -16,8 +16,12 @@ button:focus {
     outline: none;
 }
 
+h1 {
+	font-size: 0.7rem;
+}
+
 section#artist {
-	margin-top: 20px;
+	/*margin-top: 20px;*/
 	position: fixed;
 	top: 50%;
 	left: 50%;
@@ -27,43 +31,56 @@ section#artist {
 
 div#suggestions {
 	position: fixed;
-	top: 50%;
 	width: 564px;
 	text-align:left;
 	overflow-y: scroll;
 	height: 100%;
 }
-/*section#suggested_artists {
+
+div#under_construction {
+	font-size: 0.3rem;
 	position: fixed;
-	top: 50%;
-	width:100%;
-	text-align:left;
-	overflow: scroll;
+	bottom: 0;
 }
 
-section#suggested_albums{
-	position: fixed;
-	top: 50%;
-	width:100%;
-	text-align:left;
-	overflow: scroll;
-}*/
+a#backlog {
+	text-decoration: none;
+	font-weight: 400;
+}
 
-ul.suggested {
+a#backlog:hover {
+	font-weight: 700;
+}
+
+.suggested {
 	list-style: none;
+	display: inline-block;
 	padding: 0;
 	font-weight: 100;
+	margin-top: 0px;
+	height: 100%;
 }
 
-ul.suggested * {
+.suggested * {
 	font-size: 0.5rem;
 	font-family: 'helvetica neue', sans-serif;
 	font-weight: 300;
 }
 
-ul.suggested li a:hover {
+.suggested li a:hover {
 	font-weight: 700;
 	cursor: pointer;
+}
+
+div.album {
+	clear: both;
+	padding-bottom: 10px;
+}
+
+span.album_name {
+	padding-right: 10px;
+	font-weight: 700;
+	font-size: 0.7rem;
 }
 
 li#you_might_like {
@@ -76,9 +93,9 @@ li.artist_title {
 	cursor: pointer;
 }
 
-li.back_to_artists {
+li.back_to {
     color: darkgray;
-    font-size: 0.3em;
+    font-size: 0.3rem;
     padding-top: 10px;
     cursor: pointer;
 }
@@ -123,5 +140,23 @@ input#artist_name {
 	background-color: aqua !important;
 	background: aqua !important;
 }
+
+img.album_cover {
+	padding: 5px;
+	outline: 1px solid black;
+    outline-offset: -5px;
+    float: left;
+}
+
+ul.music_links {
+	list-style:none;
+	font-size: 0.5rem;
+	float:left;
+	padding: 0px 0px 0px 10px;
+	margin: 0px;
+}
+
+
+
 
 
