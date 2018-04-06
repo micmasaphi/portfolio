@@ -10,7 +10,7 @@ if($_POST) {
 	$query = "WITH b as (
 	WITH c as (
 		SELECT artist, unnest(corr_vector) as items
-		FROM correlations_15 WHERE LOWER(artist)='the national'
+		FROM correlations_15 WHERE LOWER(artist)=LOWER('".pg_escape_string($artist)."')
 	)
 		SELECT row_number() over() as rownum, artist, items FROM c WHERE items <= 0.99999999999
 		ORDER BY items DESC LIMIT 10
