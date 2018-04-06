@@ -3,7 +3,7 @@ header('Content-type: application/json');
 
 $artist = filter_var($_POST["artist"], FILTER_SANITIZE_STRING);
 
-$conn = pg_connect("host=localhost port=5432 dbname=metacritic user=postgres")
+$conn = pg_connect("host=metacritic.czkzontdaczu.us-east-2.rds.amazonaws.com port=5432 dbname=metacritic user=mmaffei password=***REMOVED***")
 	or die('Could not connect: ' . pg_last_error());
 
 $query = "SELECT artist from 
