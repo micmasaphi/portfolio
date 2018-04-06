@@ -4,7 +4,11 @@ if($_POST) {
 
 	$artist = $_POST["artist"]; //filter_var($_POST["artist"], FILTER_SANITIZE_STRING);
 
-	$conn = pg_connect("host=metacritic.czkzontdaczu.us-east-2.rds.amazonaws.com port=5432 dbname=metacritic user=mmaffei password=***REMOVED***")
+	$pwd = fopen("pwd.config","r") or die("Cannot open file!");
+	$pass = fgets($pwd);
+	fclose($pwd);
+
+	$conn = pg_connect("host=metacritic.czkzontdaczu.us-east-2.rds.amazonaws.com port=5432 dbname=metacritic user=mmaffei password=".$pass)
 		or die('Could not connect: ' . pg_last_error());
 
 	$query = "SELECT * FROM albums WHERE artist='".pg_escape_string($artist)."' ORDER BY mc_rating DESC";
