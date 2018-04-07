@@ -21,7 +21,7 @@ h1 {
 }
 
 section#artist {
-	margin-top: 20px;
+	/*margin-top: 20px;*/
 	position: fixed;
 	top: 50%;
 	left: 50%;
@@ -57,7 +57,7 @@ a#backlog:hover {
 	display: inline-block;
 	padding: 0;
 	font-weight: 100;
-	/*margin-top: 0px;*/
+	margin-top: 0px;
 	height: 100%;
 }
 

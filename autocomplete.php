@@ -4,11 +4,11 @@ header('Content-type: application/json');
 $artist = filter_var($_POST["artist"], FILTER_SANITIZE_STRING);
 
 $pwd = fopen("pwd.config","r") or die("Cannot open file!");
-$pass = fgets($pwd);
-fclose($pwd);
+	$pass = fgets($pwd);
+	fclose($pwd);
 
-$conn = pg_connect("host=metacritic.czkzontdaczu.us-east-2.rds.amazonaws.com port=5432 dbname=metacritic user=mmaffei password=".$pass)
-	or die('Could not connect: ' . pg_last_error());
+	$conn = pg_connect("host=metacritic.czkzontdaczu.us-east-2.rds.amazonaws.com port=5432 dbname=metacritic user=mmaffei password=".$pass)
+		or die('Could not connect: ' . pg_last_error());
 
 $query = "SELECT artist from 
 (SELECT artist from albums GROUP BY artist) as sub

@@ -10,16 +10,19 @@ if($_POST) {
 
 	$conn = pg_connect("host=metacritic.czkzontdaczu.us-east-2.rds.amazonaws.com port=5432 dbname=metacritic user=mmaffei password=".$pass)
 		or die('Could not connect: ' . pg_last_error());
-
-	$query = "WITH b as (
-	WITH c as (
-		SELECT artist, unnest(corr_vector) as items
-		FROM correlations_15 WHERE LOWER(artist)=LOWER('".pg_escape_string($artist)."')
+		
+	$query = 
+	"WITH sub_b as (
+		WITH sub_c as (
+			SELECT artist, unnest(corr_vector) as items
+			FROM correlations_15 WHERE LOWER(artist)=LOWER('".pg_escape_string($artist)."')
+		)
+		SELECT row_number() over() as rownum, artist, items FROM sub_c
+		ORDER BY items DESC LIMIT 11		
 	)
-		SELECT row_number() over() as rownum, artist, items FROM c WHERE items <= 0.99999999999
-		ORDER BY items DESC LIMIT 10
-	)
-	SELECT artist FROM correlations_15 WHERE row in (SELECT rownum FROM b);";
+	SELECT sub_b.rownum, sub_b.items, correlations_15.artist FROM correlations_15
+	JOIN sub_b on sub_b.rownum = correlations_15.row WHERE sub_b.items <= 0.99999999
+	ORDER BY items DESC;";
 
 	$result = pg_query($query) or die('Query failed: ' . pg_last_error());
 	$resultArray = pg_fetch_all($result);
